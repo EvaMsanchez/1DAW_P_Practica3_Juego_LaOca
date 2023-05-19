@@ -54,7 +54,11 @@ public class Controlador_NombreJugadores implements WindowListener, ActionListen
 		//Pulsamos COMENZAR.
 		else if(e.getSource().equals(nombreJugadores.btnComenzar))
 		{
-			new TableroJuego();
+			//Como en la clase Principal del main.
+			Tablero tablero = new Tablero();
+			new Controlador_Tablero(modelo, tablero);
+			
+			tablero.setVisible(true);
 		}
 	}
 }
