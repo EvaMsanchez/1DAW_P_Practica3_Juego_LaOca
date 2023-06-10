@@ -17,8 +17,8 @@ public class MenuPrincipal extends Frame //Hereda de Frame.
 	Toolkit herramienta;
 	
 	Button btnIniciarPartida = new Button("Iniciar Partida");
-	Button btnAyuda = new Button("Ranking");
-	Button btnRanking = new Button("Ayuda");
+	Button btnAyuda = new Button("Ayuda");
+	Button btnRanking = new Button("Ranking");
 	Button btnSalir = new Button("Salir");
 	
 	public MenuPrincipal()
@@ -35,9 +35,9 @@ public class MenuPrincipal extends Frame //Hereda de Frame.
 		
 		btnIniciarPartida.setBounds(370, 100, 120, 30);
 		add(btnIniciarPartida);
-		btnAyuda.setBounds(370, 150, 120, 30);
+		btnAyuda.setBounds(370, 200, 120, 30);
 		add(btnAyuda);
-		btnRanking.setBounds(370, 200, 120, 30);
+		btnRanking.setBounds(370, 150, 120, 30);
 		add(btnRanking);
 		btnSalir.setBounds(370, 250, 120, 30);
 		add(btnSalir);

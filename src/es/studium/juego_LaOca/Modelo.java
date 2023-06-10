@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 
 public class Modelo
 {
@@ -58,12 +59,20 @@ public class Modelo
 	
 	
 	
+	//Aleatorio
+	public int aleatorio()
+	{
+		Random aleatorio = new Random();
+		int numero = aleatorio.nextInt(6)+1;
+		
+		return numero;
+	}
 	
 	
 	
 	
-	
-	
+
+}
 	
 	
 	
@@ -84,4 +93,4 @@ public class Modelo
 	}
 	
 	*/
-}
+

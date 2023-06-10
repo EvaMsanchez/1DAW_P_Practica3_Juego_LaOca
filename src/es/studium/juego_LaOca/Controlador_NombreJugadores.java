@@ -9,11 +9,18 @@ public class Controlador_NombreJugadores implements WindowListener, ActionListen
 {
 	Modelo modelo;
 	NombreJugadores nombreJugadores;
+	MenuPrincipal menuPrincipal;
+	NumeroJugadores numeroJugadores;
 	
-	public Controlador_NombreJugadores(Modelo m, NombreJugadores nomj)
+	int nJugadores;
+	
+	public Controlador_NombreJugadores(Modelo m, NombreJugadores nomj, MenuPrincipal mn, int nJugadores, NumeroJugadores nJ)
 	{
+		this.nJugadores = nJugadores;
 		this.modelo = m;
 		this.nombreJugadores = nomj;
+		this.menuPrincipal = mn;
+		this.numeroJugadores = nJ;
 		
 		//Añadir Listeners
 		this.nombreJugadores.ventana.addWindowListener(this); //También se puede por nj en vez de numeroJugadores.
@@ -54,9 +61,14 @@ public class Controlador_NombreJugadores implements WindowListener, ActionListen
 		//Pulsamos COMENZAR.
 		else if(e.getSource().equals(nombreJugadores.btnComenzar))
 		{
+			String j1 = nombreJugadores.txtJugador1.getText();
+			String j2 = nombreJugadores.txtJugador2.getText();
+			String j3 = nombreJugadores.txtJugador3.getText();
+			String j4 = nombreJugadores.txtJugador4.getText();
+			
 			//Como en la clase Principal del main.
-			Tablero tablero = new Tablero();
-			new Controlador_Tablero(modelo, tablero);
+			Tablero tablero = new Tablero(nJugadores); //provisional
+			new Controlador_Tablero(modelo, tablero, menuPrincipal, nJugadores, numeroJugadores, j1, j2, j3, j4);
 			
 			tablero.setVisible(true);
 		}

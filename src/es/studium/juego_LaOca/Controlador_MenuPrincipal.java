@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
 public class Controlador_MenuPrincipal implements WindowListener, ActionListener
 {
@@ -19,8 +20,8 @@ public class Controlador_MenuPrincipal implements WindowListener, ActionListener
 		this.menuPrincipal.addWindowListener(this); //También se puede por mp en vez de menuPrincipal.
 		//Botones
 		this.menuPrincipal.btnIniciarPartida.addActionListener(this);
-		this.menuPrincipal.btnAyuda.addActionListener(this);
 		this.menuPrincipal.btnRanking.addActionListener(this);
+		this.menuPrincipal.btnAyuda.addActionListener(this);
 		this.menuPrincipal.btnSalir.addActionListener(this);
 	}
 
@@ -52,7 +53,7 @@ public class Controlador_MenuPrincipal implements WindowListener, ActionListener
 		{
 			//Como en la clase Principal del main.
 			NumeroJugadores numeroJugadores = new NumeroJugadores();
-			new Controlador_NumeroJugadores(modelo, numeroJugadores);
+			new Controlador_NumeroJugadores(modelo, numeroJugadores, menuPrincipal);
 			
 	        numeroJugadores.ventana.setVisible(true);
 		}
@@ -66,7 +67,14 @@ public class Controlador_MenuPrincipal implements WindowListener, ActionListener
 		//Pulsamos AYUDA.
 		else if(e.getSource().equals(menuPrincipal.btnAyuda))
 		{
-			new Ayuda();
+			try 
+			{
+				Runtime.getRuntime().exec("hh.exe Ayuda Oca.chm");
+			}
+			catch (IOException ee) 
+			{
+				ee.printStackTrace();
+			}
 		}
 		
 		//Pulsamos SALIR.

@@ -9,11 +9,15 @@ public class Controlador_NumeroJugadores implements WindowListener, ActionListen
 {
 	Modelo modelo;
 	NumeroJugadores numeroJugadores;
+	MenuPrincipal menuPrincipal;
 	
-	public Controlador_NumeroJugadores(Modelo m, NumeroJugadores numj)
+	int nJugadores;
+	
+	public Controlador_NumeroJugadores(Modelo m, NumeroJugadores nJ, MenuPrincipal mn)
 	{
 		this.modelo = m;
-		this.numeroJugadores = numj;
+		this.numeroJugadores = nJ;
+		this.menuPrincipal = mn;
 		
 		//Añadir Listeners
 		this.numeroJugadores.ventana.addWindowListener(this); //También se puede por nj en vez de numeroJugadores.
@@ -51,7 +55,6 @@ public class Controlador_NumeroJugadores implements WindowListener, ActionListen
 	{
 		//Como en la clase Principal del main.
 		NombreJugadores nombreJugadores = new NombreJugadores();
-		new Controlador_NombreJugadores(modelo, nombreJugadores);
 		
 		//Pulsamos ATRÁS.
 		if(e.getSource().equals(numeroJugadores.btnAtras))
@@ -68,6 +71,8 @@ public class Controlador_NumeroJugadores implements WindowListener, ActionListen
 	        nombreJugadores.txtJugador2.setEnabled(true);
 	        nombreJugadores.txtJugador3.setEnabled(false);
 	        nombreJugadores.txtJugador4.setEnabled(false);
+	        
+	        nJugadores = 2;
 		}
 		
 		//Pulsamos 3JUGADORES.
@@ -79,6 +84,8 @@ public class Controlador_NumeroJugadores implements WindowListener, ActionListen
 	        nombreJugadores.txtJugador2.setEnabled(true);
 	        nombreJugadores.txtJugador3.setEnabled(true);
 	        nombreJugadores.txtJugador4.setEnabled(false);
+	        
+	        nJugadores = 3;
 		}
 		
 		//Pulsamos 4JUGADORES.
@@ -90,6 +97,9 @@ public class Controlador_NumeroJugadores implements WindowListener, ActionListen
 	        nombreJugadores.txtJugador2.setEnabled(true);
 	        nombreJugadores.txtJugador3.setEnabled(true);
 	        nombreJugadores.txtJugador4.setEnabled(true);
+	        
+	        nJugadores = 4;
 		}
+		new Controlador_NombreJugadores(modelo, nombreJugadores, menuPrincipal, nJugadores, numeroJugadores);
 	}
 }

@@ -48,6 +48,6 @@ public class NumeroJugadores
 		
 		ventana.setResizable(false);
 		ventana.setLocationRelativeTo(null);
-		//ventana.setVisible(false);
+		ventana.setVisible(false);
 	}
 }
