@@ -61,7 +61,10 @@ public class Controlador_MenuPrincipal implements WindowListener, ActionListener
 		//Pulsamos RANKING.
 		else if(e.getSource().equals(menuPrincipal.btnRanking))
 		{
-			new Ranking();
+			Ranking ranking = new Ranking();
+			new Controlador_Ranking(modelo, ranking);
+			
+	        ranking.setVisible(true);
 		}
 		
 		//Pulsamos AYUDA.

@@ -27,15 +27,7 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 	int tiradasAmarillo = 0;
 	int tiradasAzul = 0;
 	int tiradasRojo = 0;
-	
-	
-	//Posiciones actuales
-	int posicionActualVerde = 0;
-	int posicionActualAmarillo = 0;
-	int posicionActualAzul = 0;
-	int posicionActualRojo = 0;
-
-	
+		
 	
 	public Controlador_Tablero(Modelo m, Tablero t, MenuPrincipal mn, int nJugadores, NumeroJugadores nJ, String j1, String j2, String j3, String j4)
 	{	
@@ -103,6 +95,9 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 			
 			tablero.tiradaDado(tirada);
 			
+			//Sonido del dado.
+			//modelo.reproducirSonido();
+			
 			
 			//Diálogo ganador
 			tablero.dlgFin.setLayout(null);
@@ -121,12 +116,14 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 	        {      
 	            case 1:
 	            	tablero.moverFichaVerde(tirada);// Mover ficha del jugador verde
-	            	tiradasVerde++;
-	            	
+	            	tiradasVerde++;        	
+	    
 	            	if(tablero.posicionVerde==60)
 					{
 	            		tablero.lblMensaje.setText("¡¡¡"+tablero.lblNombreJugador1.getText().toUpperCase()+" ha ganado el juego!!!");
 	            		tablero.dlgFin.setVisible(true);
+	            		
+	            		modelo.insertarJugador(j1.toUpperCase(), tiradasVerde);
 					}
 	                break;
 	                
@@ -138,6 +135,8 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 					{
 	            		tablero.lblMensaje.setText("¡¡¡"+tablero.lblNombreJugador2.getText().toUpperCase()+" ha ganado el juego!!!");
 	            		tablero.dlgFin.setVisible(true);
+	            		
+	            		modelo.insertarJugador(j2.toUpperCase(), tiradasAmarillo);
 					}
 	                break;
 	                
@@ -149,6 +148,8 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 					{
 	                	tablero.lblMensaje.setText("¡¡¡"+tablero.lblNombreJugador3.getText().toUpperCase()+" ha ganado el juego!!!");
 	            		tablero.dlgFin.setVisible(true);
+	            		
+	            		modelo.insertarJugador(j3.toUpperCase(), tiradasAzul);
 					}
 	                break;
 	                
@@ -160,6 +161,8 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 					{
 	            		tablero.lblMensaje.setText("¡¡¡"+tablero.lblNombreJugador4.getText().toUpperCase()+" ha ganado el juego!!!");
 	            		tablero.dlgFin.setVisible(true);
+	            		
+	            		modelo.insertarJugador(j4.toUpperCase(), tiradasRojo);
 					}
 	                break;
 	        }
@@ -257,7 +260,7 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 			
 			tablero.setVisible(true);
 		}	
-	}	
+	}
 }	
 	
 		

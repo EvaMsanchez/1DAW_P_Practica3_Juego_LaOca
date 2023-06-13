@@ -31,7 +31,7 @@ public class MenuPrincipal extends Frame //Hereda de Frame.
 		//Activamos la herramienta
 		herramienta = getToolkit();
 		//Cargar la imagen
-		imagenOca = herramienta.getImage("ocaPrincipal.png");
+		imagenOca = herramienta.getImage("img/ocaPrincipal.png");
 		
 		btnIniciarPartida.setBounds(370, 100, 120, 30);
 		add(btnIniciarPartida);

@@ -93,13 +93,13 @@ public class Tablero extends Frame //Hereda de Frame.
 		//Activamos la herramienta
 		herramienta = getToolkit();
 		//Cargar la imagen
-		imagenTablero = herramienta.getImage("tableroOca.png");
-		imagenDado = herramienta.getImage("dado.png");
+		imagenTablero = herramienta.getImage("img/tableroOca.png");
+		imagenDado = herramienta.getImage("img/dado.png");
 		
-		imagenTurnoA = herramienta.getImage("flechaA.png");
-		imagenTurnoAz = herramienta.getImage("flechaAz.png");
-		imagenTurnoV = herramienta.getImage("flechaV.png");
-		imagenTurnoR = herramienta.getImage("flechaR.png");
+		imagenTurnoA = herramienta.getImage("img/flechaA.png");
+		imagenTurnoAz = herramienta.getImage("img/flechaAz.png");
+		imagenTurnoV = herramienta.getImage("img/flechaV.png");
+		imagenTurnoR = herramienta.getImage("img/flechaR.png");
 		
 		lblNombreJugador1.setBounds(150, 82, 150, 25);
 		add(lblNombreJugador1);
@@ -191,22 +191,22 @@ public class Tablero extends Frame //Hereda de Frame.
 		switch(aleatorio)
 		{
 			case 1:
-				imagenDado = herramienta.getImage("uno.png");
+				imagenDado = herramienta.getImage("img/uno.png");
 				break;
 			case 2:
-				imagenDado = herramienta.getImage("dos.png");
+				imagenDado = herramienta.getImage("img/dos.png");
 				break;
 			case 3:
-				imagenDado = herramienta.getImage("tres.png");
+				imagenDado = herramienta.getImage("img/tres.png");
 				break;
 			case 4:	
-				imagenDado = herramienta.getImage("cuatro.png");
+				imagenDado = herramienta.getImage("img/cuatro.png");
 				break;
 			case 5:	
-				imagenDado = herramienta.getImage("cinco.png");
+				imagenDado = herramienta.getImage("img/cinco.png");
 				break;
 			case 6:	
-				imagenDado = herramienta.getImage("seis.png");
+				imagenDado = herramienta.getImage("img/seis.png");
 				break;
 		}
 		
@@ -470,14 +470,18 @@ public class Tablero extends Frame //Hereda de Frame.
 	}
 	
 	
-	/*public int obtenerSiguienteCasillaOca(int posicion)
+	
+	/*public int obtenerCasillaOca(int posicion)
 	{
-    	int[] casillasOca = {9, 18, 27, 36, 45, 54}; // Arreglo con las posiciones de las casillas de la Oca
+    	int[] casillasOca = {1, 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59}; 
     	    
-    	    for (int i = 0; i < casillasOca.length - 1; i++) {
-    	        if (posicion == casillasOca[i]) {
-    	            return casillasOca[i + 1]; // Retorna la siguiente casilla de la Oca
+    	    for (int i = 0; i < casillasOca.length - 1; i++)
+    	    {
+    	        if (posicion == casillasOca[i])
+    	        {
+    	           int nuevaPosicion = casillasOca[i + 1]; // Retorna la siguiente casilla de la Oca
     	        }
+    	        
     	    }
     	    
     	    return -1; // No hay más casillas de la Oca después de la posición actual
