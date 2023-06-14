@@ -74,6 +74,8 @@ public class Tablero extends Frame //Hereda de Frame.
 	Dialog dlgNuevaPartida = new Dialog(this, "Nueva Partida", true);
 	Button btnSi = new Button("Si");
 	Button btnNo = new Button("No");
+
+	int nuevaPosicion;
 	
 	
 	
@@ -408,6 +410,9 @@ public class Tablero extends Frame //Hereda de Frame.
 	//Métodos mover fichas
 	public void moverFichaVerde(int aleatorio) 
 	{
+		int[] casillasOca = {0, 4, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0,
+	    	   		4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 1};
+		
 	    int nuevaPosicion = posicionVerde + aleatorio;
 	    
 	    if (nuevaPosicion <= 60)
@@ -418,7 +423,18 @@ public class Tablero extends Frame //Hereda de Frame.
 	        posicionVerde = nuevaPosicion;
 	    }
 	    
-	    repaint();
+	   repaint();
+	    
+	   
+	   int oca = casillasOca[posicionVerde];
+	   nuevaPosicion =  posicionVerde + oca;
+	   
+	   xVerde = coordenadas[nuevaPosicion][0];
+       yVerde = coordenadas[nuevaPosicion][1];
+       
+       posicionVerde = nuevaPosicion;
+	   
+	   repaint();
 	}
 	
 
@@ -457,7 +473,7 @@ public class Tablero extends Frame //Hereda de Frame.
 	public void moverFichaRoja(int aleatorio) 
 	{
 	    int nuevaPosicion = posicionRoja + aleatorio;
-	    
+	     
 	    if (nuevaPosicion <= 60)
 	    {
 	        xRojo = coordenadas[nuevaPosicion][0];
@@ -473,16 +489,16 @@ public class Tablero extends Frame //Hereda de Frame.
 	
 	/*public int obtenerCasillaOca(int posicion)
 	{
-    	int[] casillasOca = {1, 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59}; 
+    	 int[] casillasOca = {4, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0,
+    	   		4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 1};
     	    
-    	    for (int i = 0; i < casillasOca.length - 1; i++)
-    	    {
-    	        if (posicion == casillasOca[i])
+  
+    	 posicion == casillasOca[posicion])
     	        {
     	           int nuevaPosicion = casillasOca[i + 1]; // Retorna la siguiente casilla de la Oca
     	        }
     	        
-    	    }
+    	    } 
     	    
     	    return -1; // No hay más casillas de la Oca después de la posición actual
     }*/

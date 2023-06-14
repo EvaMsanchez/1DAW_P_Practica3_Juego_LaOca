@@ -96,7 +96,7 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 			tablero.tiradaDado(tirada);
 			
 			//Sonido del dado.
-			//modelo.reproducirSonido();
+			modelo.reproducirSonido();
 			
 			
 			//Diálogo ganador
@@ -167,8 +167,14 @@ public class Controlador_Tablero implements WindowListener, ActionListener
 	                break;
 	        }
 	        
-	      
-	        turno++;
+	        
+	        
+	        if(tirada!=6)
+	        {
+	    	  turno++;
+	        }
+	       
+	        
 	        
 			if(turno>nJugadores)
 			{

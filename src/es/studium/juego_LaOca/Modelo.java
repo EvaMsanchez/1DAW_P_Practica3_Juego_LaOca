@@ -1,11 +1,22 @@
 package es.studium.juego_LaOca;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
+
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Modelo
 {
@@ -72,8 +83,8 @@ public class Modelo
 	
 	
 	
-	/*//Reproducir sonido dado
-	void reproducirSonido()
+	//Reproducir sonido dado
+	public void reproducirSonido()
 	{
 		//Primero guardar el archivo de sonido en una carpeta
 		File sf = new File("sonido\\dado.wav");
@@ -93,7 +104,7 @@ public class Modelo
 	        ol.open(ais);
 	        ol.loop(1); //Se reproduce una vez.
 
-	        Thread.sleep(10000); 
+	        Thread.sleep(1000); 
 
 	        ol.close();
 	    } 
@@ -114,7 +125,7 @@ public class Modelo
 		{
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	
 	
